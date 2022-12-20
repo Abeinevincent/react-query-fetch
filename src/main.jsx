@@ -6,8 +6,8 @@ import './index.css'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      // refetchOnWindowFocus: true, ->Uncomment to enable it globally
-      // refetchOnReconnect: true ->Uncomment to enable it globally
+      refetchOnWindowFocus: true, 
+      refetchOnReconnect: true 
     }
   }
 }) 
