@@ -6,8 +6,8 @@ import './index.css'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: true, 
-      refetchOnReconnect: true 
+      refetchOnWindowFocus: false, 
+      refetchOnReconnect: false 
     }
   }
 }) 
