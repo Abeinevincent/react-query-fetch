@@ -7,26 +7,31 @@ function App() {
     const { data } = await axios.get('https://jsonplaceholder.typicode.com/users')
     return data;
   }
+  const handleError = (error, query) => {
+    // Do anything with the error here e.g conditionally render modals with error.message as body to improve your app's user experience
+    toast.error(`Something went wrong: ${error.message}`)
+    console.log(`An error occured, ${error.message}`)
+  }
 
-  const { isLoading, isError, error, data } = useQuery({ 
-    queryKey: 'users', 
-    queryFn: getUsers, 
-    refetchOnWindowFocus: false, //Defaults to true
-    refetchOnReconnect: false //Defaults to true
+  const usersObject = useQuery('users', getUsers, {
+    onError: handleError,
+    useErrorBoundary: error => error.response?.status >= 500
   })
-  if (isLoading) {
-    return <div>Loading..</div>
+
+  if (usersObject.isLoading) {
+    return <div>Loading...</div>
   }
-  if (isError) {
-    return <div>Errror, {error.message}</div>
-  }
+
   return (
-    <div className="App">
-      {data && data.map((user, index) => (
-        <div key={index}>{user.phone}</div>
-      ))}
+    <div>
+      {
+        usersObject.data.map((user, index) => (
+          <p key={index}>{user.name}</p>
+        ))
+      }
     </div>
   )
+
 }
 
 export default App
