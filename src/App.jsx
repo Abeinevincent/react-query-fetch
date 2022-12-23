@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { useQuery } from 'react-query'
 import './App.css'
 import Posts from './components/Post'
