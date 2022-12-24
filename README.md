@@ -1,6 +1,4 @@
-# Data fetching in react-query
-This project details most concepts one needs to start using useQuery hook provided by react-query for data fetching
-
+# Data fetching in react-queryp8po8778809897=ffd]]=====gg
 **Article:** https://dev.to/abeinevincent/data-fetching-from-an-api-using-react-query-usequery-hook-explained-in-plain-english-4eei
 
 ## Functionality
@@ -8,8 +6,10 @@ This project details most concepts one needs to start using useQuery hook provid
 - Basic data fetch using useQuery hook from react-query 
 - Error handling in react-query
 - Refetching data in the background on window focus and on reconnect
+- Fetching data using a global query function
+- Paginated queries
 
-## Technologies and tools used
+## Technologies and tools usedn
 This project uses vite as build tool/command, react 18 and JavaScript. 
 
 ## Contributing
