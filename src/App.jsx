@@ -1,3 +1,4 @@
+import { useQuery } from 'react-query'
 import './App.css'
 import { PaginatedPosts } from './components/PaginatedPosts'
 import Posts from './components/Post'
