@@ -1,6 +1,5 @@
 import axios from 'axios';
-import React from 'react'
-import { useQuery } from 'react-query';
+import { isError, useQuery } from '@tanstack/react-query';
 export const Users = () => {
   const getUsers = async () => {
     const { data } = await axios.get('https://jsonplaceholder.typicode.com/users')
@@ -13,13 +12,19 @@ export const Users = () => {
   }
 
   // The getUsers function overides the default query function 
-  const usersObject = useQuery('users', getUsers, {
+  const usersObject = useQuery({
+    queryKey: ['users'], queryFn: getUsers, networkMode: 'always',
     onError: handleError,
     useErrorBoundary: error => error.response?.status >= 500
   })
   return (
-    <div>{usersObject.data && usersObject.data.map((user, index) => (
-      <p key={index}>{user.name}</p>
-    ))}</div>
+    <>
+      {usersObject.isError && <div>Error,</div>}
+      {usersObject.isInitialLoading && <div>Loading...</div>}
+      <div>{usersObject.data && usersObject.data.map((user, index) => (
+        <p key={index}>{user.name}</p>
+      ))}</div>
+
+    </>
   )
 }
