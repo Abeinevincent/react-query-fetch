@@ -7,8 +7,6 @@ function App() {
 
   return (
     <div>
-      {/* <Users />
-      <Posts /> */}
       <PaginatedPosts />
     </div>
   )
