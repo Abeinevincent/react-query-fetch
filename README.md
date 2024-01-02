@@ -1,4 +1,4 @@
-# Data fetching in react-queryp8po8778809897=ffd]]=====gg
+# Data fetching in react-query
 **Article:** https://dev.to/abeinevincent/data-fetching-from-an-api-using-react-query-usequery-hook-explained-in-plain-english-4eei
 
 ## Functionality
